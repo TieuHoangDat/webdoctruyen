@@ -1,0 +1,269 @@
+{
+  "status": "success",
+  "message": "Th\u1ef1c hi\u1ec7n th\u00e0nh c\u00f4ng",
+  "status_code": 200,
+  "meta": {
+    "pagination": {
+      "total": 112,
+      "count": 50,
+      "per_page": 50,
+      "current_page": 1,
+      "total_pages": 3,
+      "links": {
+        "next": "http://api.truyenfull.vn/v1/story/detail/34845/chapters?page=2"
+      }
+    }
+  },
+  "data": [
+    {
+      "id": 4434898,
+      "title": "Ch\u01b0\u01a1ng 1: 1: Ph\u1ea7n M\u1edf \u0110\u1ea7u",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434899,
+      "title": "Ch\u01b0\u01a1ng 2: Ch\u01b0\u01a1ng 2",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434900,
+      "title": "Ch\u01b0\u01a1ng 3: Ch\u01b0\u01a1ng 3",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434901,
+      "title": "Ch\u01b0\u01a1ng 4: Ch\u01b0\u01a1ng 4",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434902,
+      "title": "Ch\u01b0\u01a1ng 5: Ch\u01b0\u01a1ng 5",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434903,
+      "title": "Ch\u01b0\u01a1ng 6: Ch\u01b0\u01a1ng 6",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434904,
+      "title": "Ch\u01b0\u01a1ng 7: Ch\u01b0\u01a1ng 7",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434905,
+      "title": "Ch\u01b0\u01a1ng 8: Ch\u01b0\u01a1ng 8",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434906,
+      "title": "Ch\u01b0\u01a1ng 9: Ch\u01b0\u01a1ng 9",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434907,
+      "title": "Ch\u01b0\u01a1ng 10: Ch\u01b0\u01a1ng 10",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434908,
+      "title": "Ch\u01b0\u01a1ng 11: Ch\u01b0\u01a1ng 11",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434909,
+      "title": "Ch\u01b0\u01a1ng 12: Ch\u01b0\u01a1ng 12",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434910,
+      "title": "Ch\u01b0\u01a1ng 13: Ch\u01b0\u01a1ng 13",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434911,
+      "title": "Ch\u01b0\u01a1ng 14: Ch\u01b0\u01a1ng 14",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434912,
+      "title": "Ch\u01b0\u01a1ng 15: Ch\u01b0\u01a1ng 15",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434913,
+      "title": "Ch\u01b0\u01a1ng 16: Ch\u01b0\u01a1ng 16",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434914,
+      "title": "Ch\u01b0\u01a1ng 17: Ch\u01b0\u01a1ng 17",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434915,
+      "title": "Ch\u01b0\u01a1ng 18: Ch\u01b0\u01a1ng 18",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434916,
+      "title": "Ch\u01b0\u01a1ng 19: Ch\u01b0\u01a1ng 19",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434917,
+      "title": "Ch\u01b0\u01a1ng 20: Ch\u01b0\u01a1ng 20",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434918,
+      "title": "Ch\u01b0\u01a1ng 21: Ch\u01b0\u01a1ng 21",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434919,
+      "title": "Ch\u01b0\u01a1ng 22: Ch\u01b0\u01a1ng 22",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434920,
+      "title": "Ch\u01b0\u01a1ng 23: Ch\u01b0\u01a1ng 23",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434921,
+      "title": "Ch\u01b0\u01a1ng 24: Ch\u01b0\u01a1ng 24",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434922,
+      "title": "Ch\u01b0\u01a1ng 25: Ch\u01b0\u01a1ng 25",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434923,
+      "title": "Ch\u01b0\u01a1ng 26: Ch\u01b0\u01a1ng 26",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434924,
+      "title": "Ch\u01b0\u01a1ng 27: Ch\u01b0\u01a1ng 27",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434925,
+      "title": "Ch\u01b0\u01a1ng 28: Ch\u01b0\u01a1ng 28",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434926,
+      "title": "Ch\u01b0\u01a1ng 29: Ch\u01b0\u01a1ng 29",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434927,
+      "title": "Ch\u01b0\u01a1ng 30: Ch\u01b0\u01a1ng 30",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434928,
+      "title": "Ch\u01b0\u01a1ng 31: Ch\u01b0\u01a1ng 31",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434929,
+      "title": "Ch\u01b0\u01a1ng 32: Ch\u01b0\u01a1ng 32",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434930,
+      "title": "Ch\u01b0\u01a1ng 33: Ch\u01b0\u01a1ng 33",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434931,
+      "title": "Ch\u01b0\u01a1ng 34: Ch\u01b0\u01a1ng 34",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434932,
+      "title": "Ch\u01b0\u01a1ng 35: Ch\u01b0\u01a1ng 35",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434933,
+      "title": "Ch\u01b0\u01a1ng 36: Ch\u01b0\u01a1ng 36",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434934,
+      "title": "Ch\u01b0\u01a1ng 37: Ch\u01b0\u01a1ng 37",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434935,
+      "title": "Ch\u01b0\u01a1ng 38: Ch\u01b0\u01a1ng 38",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434936,
+      "title": "Ch\u01b0\u01a1ng 39: Ch\u01b0\u01a1ng 39",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434937,
+      "title": "Ch\u01b0\u01a1ng 40: Ch\u01b0\u01a1ng 40",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434938,
+      "title": "Ch\u01b0\u01a1ng 41: 41: B\u1ea5t B\u00ecnh Nh\u01b0ng C\u1ed1 Nh\u1ecbn",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434939,
+      "title": "Ch\u01b0\u01a1ng 42: 42: D\u1ea1o Ph\u1ed1 C\u00f9ng Nhau",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434940,
+      "title": "Ch\u01b0\u01a1ng 43: 43: L\u1ea1i Th\u00eam \u0110i\u1ec1u K\u1ef3 L\u1ea1 X\u1ea3y Ra",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434941,
+      "title": "Ch\u01b0\u01a1ng 44: 44: Kh\u1ed1ng Ch\u1ebf Ki\u1ebfm Linh",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434942,
+      "title": "Ch\u01b0\u01a1ng 45: 45: Cu\u1ed9c G\u1eb7p G\u1ee1 B\u00ed \u1ea8n",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434943,
+      "title": "Ch\u01b0\u01a1ng 46: 46: C\u00f3 Bi\u1ebfn!",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434944,
+      "title": "Ch\u01b0\u01a1ng 47: 47: B\u1ecb T\u00e2m Ma X\u00e2m Nh\u1eadp",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434945,
+      "title": "Ch\u01b0\u01a1ng 48: 48: \u00c2m M\u01b0u C\u1ee7a K\u1ebb Gi\u1ea5u M\u1eb7t",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434946,
+      "title": "Ch\u01b0\u01a1ng 49: 49: R\u1eddi Th\u00f4n Quay V\u1ec1 Th\u00e0nh",
+      "date": "09/09/2023"
+    },
+    {
+      "id": 4434947,
+      "title": "Ch\u01b0\u01a1ng 50: 50: Ngo\u1ea1i Truy\u1ec7n 1 C\u00e2u Chuy\u1ec7n C\u1ee7a H\u1ed3 Dung Ly Ph\u1ea7n I",
+      "date": "09/09/2023"
+    }
+  ]
+}

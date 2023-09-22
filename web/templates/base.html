@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+  <head>
+    {% block title %}
+    <title>Đọc truyện miễn cmn phí</title>
+    {% endblock %} <link rel="stylesheet" href={% static "index/css/base.css" %}
+    >
+  </head>
+</html>
+<body>
+  <div class="Sidebar">
+        <ul style="display: flex; flex-direction: row;justify-content: center;align-items: center;list-style-type: none;">
+            <li>one</li>
+            <li>two</li>
+            <li><button onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>
+        </ul>
+  </div>
+  <nav class="navbar">
+    <ul class="nav_list">
+      <li class="nav_item">
+        <button onclick="Open_Sidebar()">
+          <img src={% static "index/image/sidebar.svg" %} alt="Open_Sidebar">
+        </button>
+      </li>
+      <li><button>
+        <img src={% static "index/image/login.svg" %} alt="Login icon"><span style="font-weight: bold;">Đăng nhập</span>
+      </button></li>
+    </ul>
+  </nav>
+  <main>
+  {% block content %}{% endblock content %}
+  <main>
+</body>
+<script>
+  function Open_Sidebar(){
+      document.getElementsByClassName("Sidebar")[0].classList.add("Sidebar--open")
+  }
+  function Close_Sidebar(){
+    document.getElementsByClassName("Sidebar")[0].classList.remove("Sidebar--open")
+  }
+</script>
