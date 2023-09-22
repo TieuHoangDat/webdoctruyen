@@ -1,0 +1,32 @@
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.Book_list {
+  display: flex;
+  list-style-type: none;
+  height: 15rem;
+  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: var(--padding);
+  gap: 2rem;
+}
+.Book_list::-webkit-scrollbar {
+  display: none;
+}
+
+.Novel_card {
+  background-color: aqua;
+  width: 10rem;
+  height: 14rem;
+}
+.Card_info {
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
