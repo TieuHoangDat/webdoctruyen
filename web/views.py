@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseRedirect
 from .forms import nameForm
+from .models import Novel
 # Create your views here.
 
 def index(request):
     str = "hello"
     context = {
-        "a" : str
+        "top_like" : Novel.objects.all().order_by("-total_likes")[:10]
     }
     return render(request,"index.html",context=context)
 
