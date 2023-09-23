@@ -13,11 +13,11 @@
   font-size: 16px;
   --nav_color: #05055b;
   --btn_color: #1a1ac5;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle at 50% 0%,
     hsl(0, 0%, 8%) 0%,
     hsl(0, 0%, 2%) 100%
-  );
+  ); */
   background-attachment: fixed;
   background-size: 100vw 100vh;
 }
@@ -90,7 +90,7 @@ button {
   display: flex;
   align-items: center;
   background-color: var(--nav_color);
-  height: 3rem;
+  height: 5rem;
   width: 100%;
 }
 .nav_list {
@@ -147,6 +147,17 @@ main {
 
 .sidebar--open {
   display: inline;
+}
+
+.bg__white {
+  background-color: white;
+}
+.bg__white * {
+  color: rgb(86, 86, 244);
+}
+
+.bg__black {
+  background-color: black;
 }
 
 @media only screen and (max-width: 600px) {
