@@ -30,3 +30,6 @@ section {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.abc {
+  display: block;
+}
