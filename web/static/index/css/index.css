@@ -1,60 +1,45 @@
-/* Đây là phần CSS cho đoạn template Django bạn đã đưa ra */
+section {
+  width: 80%;
+  margin: auto;
+}
 
-/* Định dạng phần tiêu đề */
 header {
   text-align: center;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
+  padding: 20px 0;
 }
 
-/* Định dạng danh sách truyện */
 .Book_list {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-between;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
 }
 
-/* Định dạng mỗi thẻ truyện */
 .Novel_card {
-  background-color: turquoise;
-  width: 20%; /* Đặt chiều rộng của mỗi thẻ truyện */
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  box-sizing: border-box;
-  transition: transform 0.2s; /* Hiệu ứng khi hover */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 20px;
+  text-align: center;
+  font-family: arial;
 }
 
-.Novel_card:hover {
-  transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
-}
-
-/* Định dạng hình bìa truyện */
 .Cover {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  max-height: 200px;
 }
 
-/* Định dạng tiêu đề truyện */
-.Title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 5px;
+.Card_info .Title {
+  color: grey;
+  font-size: 18px;
 }
 
-/* Định dạng thể loại truyện */
-.Card_info span {
-  margin-right: 5px;
-  padding: 3px 5px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 3px;
-  font-size: 0.8rem;
+.Card_info > div > span {
+  display: inline-block;
+  margin: 2px;
+  padding: 2px 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
 }
-
-/* Đây là phần CSS của file "index.css" đã được import vào template */

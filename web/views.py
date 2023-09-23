@@ -5,7 +5,7 @@ from .models import Novel,NovelGenre
 # Create your views here.
 
 def index(request):
-    top_like =  Novel.objects.all().order_by("-total_likes")[:20]
+    top_like =  Novel.objects.all().order_by("-total_likes")[:7]
 
     context = {
         "top_like" : top_like,

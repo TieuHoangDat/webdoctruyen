@@ -1,3 +1,4 @@
+#
 import os
 import random
 import requests
@@ -32,7 +33,6 @@ def fetch_novel_details(novel_id):
     fetch_chapters(novel_id)
 
 def fetch_chapters(novel_id):
-    """Fetch and save chapters of a novel."""
     response = requests.get(f"{BASE_URL}/v1/story/detail/{novel_id}/chapters")
     chapters = response.json()['data']
 
@@ -40,7 +40,6 @@ def fetch_chapters(novel_id):
         fetch_chapter(chapter['id'], novel_id)
 
 def fetch_chapter(chapter_id, novel_id):
-    """Fetch and save a chapter."""
     response = requests.get(f"{BASE_URL}/v1/chapter/detail/{chapter_id}")
     data = response.json()['data']
 
@@ -61,7 +60,6 @@ def fetch_chapter(chapter_id, novel_id):
         file.write(data['content'])
 
 def fetch_novels(page):
-    """Fetch and save novels in a specific page."""
     response = requests.get(f"{BASE_URL}/v1/story/all?type=story_update&page={page}")
     novels = response.json()["data"]
 
@@ -69,9 +67,6 @@ def fetch_novels(page):
         fetch_novel_details(novel['id'])
 
 def main():
-    """Main function to fetch and save novels and their details."""
     for i in range(1, 5):
         fetch_novels(i)
 
-if __name__ == "__main__":
-    main()
