@@ -1,22 +1,22 @@
-{% extends "base.html" %} {% load static %} {% block content %} {% block css %}
-<link rel="stylesheet" href={% static "index/css/index.css" %}> {% endblock %}
-<section>
-  <header><h1>Truyen nhieu like nhat</h1></header>
-  <ul class="Book_list">
-    {% for novel in top_like%}
-    <li class="Novel_card">
-      <img class="Cover" src="{{novel.cover}}" alt="Cover" />
-      <div class="Card_info">
-        <div class="Title">{{novel.title}}</div>
-        <div> {% for genre in novel.genres.all %}
-          <span>{{genre.name}}</span>
-          {% endfor %}</div>
-     
+{% extends "base.html" %} {% load static %} {% block css %} <link
+rel="stylesheet" href={% static "index/css/index.css" %}> {% endblock %} {%block
+content %}
+<section class="mt-4">
+  <header class="text-center"><h1>Truyen nhieu like nhat</h1></header>
+  <ul class="d-flex flex-nowrap overflow-auto">
+    {% for novel in top_like %}
+    <li class="card mr-3" style="width: 18rem">
+      <img class="card-img-top" src="{{novel.cover}}" alt="Cover" />
+      <div class="card-body">
+        <h5 class="card-title">{{novel.title}}</h5>
+        <p class="card-text">
+          {% for genre in novel.genres.all %}
+          <span class="badge badge-primary">{{genre.name}}</span>
+          {% endfor %}
+        </p>
+      </div>
     </li>
     {% endfor %}
-      </div>
-      
   </ul>
 </section>
-
 {% endblock %}
