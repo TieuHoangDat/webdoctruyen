@@ -21,9 +21,14 @@ section {
 }
 
 .Novel_card {
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: brown;
   width: 10rem;
   height: 14rem;
+  gap: 1px;
 }
 .Card_info {
   font-size: 1rem;
