@@ -7,10 +7,11 @@
     <li class="Novel_card">
       <img class="Cover" src="{{novel.cover}}" alt="Cover" />
       <div class="Card_info">
-        <p class="Title">{{novel.title}}</p>
-      {% for genre in novel.genres.all %}
-      <span>{{genre.name}}</span>
-      {% endfor %}
+        <div class="Title">{{novel.title}}</div>
+        <div> {% for genre in novel.genres.all %}
+          <span>{{genre.name}}</span>
+          {% endfor %}</div>
+     
     </li>
     {% endfor %}
       </div>

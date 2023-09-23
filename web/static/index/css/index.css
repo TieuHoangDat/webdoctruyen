@@ -31,7 +31,21 @@ section {
   gap: 1px;
 }
 .Card_info {
-  font-size: 1rem;
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  flex-direction: column;
+  font-size: 0.7rem;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.Card_info * {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: auto;
+}
+
+.Card_info ::-webkit-scrollbar {
+  display: block;
 }
