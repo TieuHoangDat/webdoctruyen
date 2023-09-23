@@ -90,14 +90,18 @@ button {
   display: flex;
   align-items: center;
   background-color: var(--nav_color);
-  height: 5rem;
+  height: 3rem;
   width: 100%;
 }
 .nav_list {
+  margin: auto;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   width: 60%;
   max-width: 60%;
-  margin: auto;
+
   display: flex;
+  height: 80%;
   padding-left: 10px;
   padding-right: 10px;
   list-style-type: none;
