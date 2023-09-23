@@ -1,51 +1,60 @@
-section {
-  display: flex;
-  flex-direction: column;
+/* Đây là phần CSS cho đoạn template Django bạn đã đưa ra */
+
+/* Định dạng phần tiêu đề */
+header {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
+/* Định dạng danh sách truyện */
 .Book_list {
+  list-style: none;
+  padding: 0;
   display: flex;
-  list-style-type: none;
-  height: 15rem;
-  overflow: hidden;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: var(--padding);
-  gap: 2rem;
-}
-.Book_list::-webkit-scrollbar {
-  display: none;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
 }
 
+/* Định dạng mỗi thẻ truyện */
 .Novel_card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: brown;
-  width: 10rem;
-  height: 14rem;
-  gap: 1px;
-}
-.Card_info {
-  display: flex;
-  padding: 1rem;
-  width: 100%;
-  flex-direction: column;
-  font-size: 0.7rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  background-color: turquoise;
+  width: 20%; /* Đặt chiều rộng của mỗi thẻ truyện */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: transform 0.2s; /* Hiệu ứng khi hover */
 }
 
-.Card_info * {
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: auto;
+.Novel_card:hover {
+  transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
 }
 
-.Card_info ::-webkit-scrollbar {
-  display: block;
+/* Định dạng hình bìa truyện */
+.Cover {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
 }
+
+/* Định dạng tiêu đề truyện */
+.Title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Định dạng thể loại truyện */
+.Card_info span {
+  margin-right: 5px;
+  padding: 3px 5px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* Đây là phần CSS của file "index.css" đã được import vào template */
