@@ -12,6 +12,8 @@
     {% endblock %} <link rel="stylesheet" href={% static "index/css/base.css" %}
     >
     {% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     {% endblock %}
   </head>
 </html>
@@ -37,7 +39,7 @@
   </nav>
   <div>
     <label class="switch">
-      <input onchange="changeBg()" id="Tg" type="checkbox" checked>
+      <input onchange="changeBg()" id="Tg" type="checkbox" unchecked>
       <span class="slider round"></span>
     </label>
   </div>
