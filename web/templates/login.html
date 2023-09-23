@@ -1,15 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block css %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body>
+ {% endblock %}   
+    
         {% block register%}
         <section class="vh-100" style="background-color: #eee;">
             <div class="container h-100">
@@ -76,5 +70,4 @@
         </form> {% endcomment %}
         <script src="" async defer></script>
         {% endblock register%}
-    </body>
-</html>
+  
