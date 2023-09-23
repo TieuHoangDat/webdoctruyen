@@ -8,7 +8,7 @@ from django.contrib import messages
 # Create your views here.
 
 def index(request):
-    top_like =  Novel.objects.all().order_by("-total_likes")[:20]
+    top_like =  Novel.objects.all().order_by("-total_likes")[15:25]
 
     context = {
         "top_like" : top_like,

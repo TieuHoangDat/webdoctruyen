@@ -1,60 +1,112 @@
-/* Đây là phần CSS cho đoạn template Django bạn đã đưa ra */
+section {
+  width: 80%;
+  margin: auto;
+}
 
-/* Định dạng phần tiêu đề */
 header {
   text-align: center;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
+  padding: 20px 0;
 }
 
-/* Định dạng danh sách truyện */
 .Book_list {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-between;
 }
 
-/* Định dạng mỗi thẻ truyện */
 .Novel_card {
-  background-color: turquoise;
-  width: 20%; /* Đặt chiều rộng của mỗi thẻ truyện */
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  box-sizing: border-box;
-  transition: transform 0.2s; /* Hiệu ứng khi hover */
+  box-shadow: 0 4px 8px 0 rgba(213, 210, 210, 0.2);
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 2px;
+  max-width: 300px;
+  width: 10vw;
+  margin: 20px;
+  text-align: center;
+  font-family: arial;
 }
 
-.Novel_card:hover {
-  transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
-}
-
-/* Định dạng hình bìa truyện */
 .Cover {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  max-height: 200px;
 }
 
-/* Định dạng tiêu đề truyện */
-.Title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 5px;
+.Card_info .Title {
+  color: grey;
+  font-size: 1rem;
+  text-overflow: ellipsis;
 }
 
-/* Định dạng thể loại truyện */
-.Card_info span {
-  margin-right: 5px;
-  padding: 3px 5px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 3px;
-  font-size: 0.8rem;
+.Card_info > div > span {
+  display: inline-block;
+  margin: 2px;
+  padding: 2px 4px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #933c3c;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-/* Đây là phần CSS của file "index.css" đã được import vào template */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

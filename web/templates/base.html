@@ -9,7 +9,7 @@
     {% endblock %}
   </head>
 </html>
-<body>
+<body class="bg__black">
   <div class="Sidebar">
         <ul style="display: flex; flex-direction: row;justify-content: center;align-items: center;list-style-type: none;">
             <li>one</li>
@@ -29,6 +29,13 @@
       </button></li>
     </ul>
   </nav>
+  <div>
+    <label class="switch">
+      <input onchange="changeBg()" id="Tg" type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+  </div>
+  
   <main>
   {% block content %}{% endblock content %}
   {% block register%}{% endblock register%}
@@ -41,4 +48,14 @@
   function Close_Sidebar(){
     document.getElementsByClassName("Sidebar")[0].classList.remove("Sidebar--open")
   }
+  function changeBg() {
+  const checkbox = document.getElementById("Tg");
+  const isChecked = checkbox.checked;
+
+  if (isChecked) {
+    document.body.classList.replace("bg__black", "bg__white");
+  } else {
+    document.body.classList.replace("bg__white", "bg__black");
+  }
+}
 </script>

@@ -13,11 +13,11 @@
   font-size: 16px;
   --nav_color: #05055b;
   --btn_color: #1a1ac5;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle at 50% 0%,
     hsl(0, 0%, 8%) 0%,
     hsl(0, 0%, 2%) 100%
-  );
+  ); */
   background-attachment: fixed;
   background-size: 100vw 100vh;
 }
@@ -94,10 +94,14 @@ button {
   width: 100%;
 }
 .nav_list {
+  margin: auto;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   width: 60%;
   max-width: 60%;
-  margin: auto;
+
   display: flex;
+  height: 80%;
   padding-left: 10px;
   padding-right: 10px;
   list-style-type: none;
@@ -147,6 +151,17 @@ main {
 
 .sidebar--open {
   display: inline;
+}
+
+.bg__white {
+  background-color: white;
+}
+.bg__white * {
+  color: rgb(86, 86, 244);
+}
+
+.bg__black {
+  background-color: black;
 }
 
 @media only screen and (max-width: 600px) {
