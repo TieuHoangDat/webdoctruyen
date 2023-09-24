@@ -128,6 +128,17 @@ button {
   background-color: var(--btn_color);
 }
 
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: bisque;
+  padding: 2px 5px 2px 5px;
+  font-weight: 600;
+}
 .nav_list button:hover {
   background-color: rgb(86, 86, 244);
 }
