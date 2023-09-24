@@ -9,7 +9,8 @@ header {
 }
 
 .Book_list {
-  margin: 0;
+  max-width: 100%;
+  margin: auto;
   padding: 0;
 }
 
@@ -19,7 +20,7 @@ header {
   /* border: 1px solid;
   border-radius: 20px; */
   padding: 2px;
-  max-width: 300px;
+  max-width: 20vmin;
   max-height: 40vmin;
   min-width: 20vmin;
   width: 10vw;
@@ -77,8 +78,14 @@ header {
 .Novelcard_title {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+.Novelcard_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .Novelcard_body > div > span {
   display: inline-block;
   margin: 2px;

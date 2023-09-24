@@ -30,14 +30,17 @@ body {
   position: relative;
   flex-direction: column;
 }
-body > * {
+body > *:hover {
+  text-decoration: none !important;
+}
+body * {
   text-decoration: none;
 }
 ::selection {
   background: var(--accent);
   color: black;
 }
-
+/* 
 h1,
 h2,
 h3,
@@ -50,7 +53,7 @@ h6 {
   color: white;
   margin: 0 0 0.5em 0;
   line-height: 1.1;
-}
+} */
 
 h1 {
   font-size: 3.2rem;

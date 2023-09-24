@@ -3,12 +3,13 @@
   {% block css %} <link rel="stylesheet" href="{% static "index/css/index.css" %}"> {% endblock %}
 
 {% block content %}
-<section class="Top_like container">
+<section class="Top_like ">
   <header class="text-center"><h1>Truyen nhieu like nhat</h1></header>
-  <div class="Book_list row">
+  <div class="container">
+  <div class="Book_list  row justify-content-md-around justify-content-lg-around justify-content-sm-around">
     {% for novel in top_like %}
     
-    <a href="#" class="Novelcard col col-lg-5 col-md-4 col-sm-3 col-xl-6">
+    <a href="#" class="Novelcard col ">
       <div class="Book_info">
         {{novel.title}}
       </div>
@@ -16,21 +17,21 @@
           <img class="Novelcard_img" src="{{novel.cover}}" alt="Cover" />
         <div class="extra">
           <div class="score">
-            <span class="star">
+            <span class="star text-responsive">
               {% comment %} {% with score = novel.rating  %} {% endcomment %}
               {{ novel.rating|rating_star:"⭐" }}
               {% comment %} {% endwith %} {% endcomment %}
             </span>
-            <span class="rating">{{novel.rating}}</span>
+            <span class="rating text-responsive">{{novel.rating}}</span>
           </div>
           
         </div>
       </div>
       <div class="Novelcard_body">
-        <h5 class="Novelcard_title">{{novel.title}}</h5>
+        <p class="Novelcard_title h6">{{novel.title}}</p>
         <div class="Novelcard_text">
           {% for genre in novel.genres.all %}
-          <span class="border border-primary rounded-pill p-1"
+          <span class="border border-primary rounded-pill p-1 genre"
             >{{genre.name}}</span
           >
           {% endfor %}
@@ -38,6 +39,7 @@
       </div>
     </a>
     {% endfor %}
+  </div>
   </ul>
 </section>
 {% endblock %}
