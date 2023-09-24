@@ -30,7 +30,9 @@ body {
   position: relative;
   flex-direction: column;
 }
-
+body > * {
+  text-decoration: none;
+}
 ::selection {
   background: var(--accent);
   color: black;
@@ -148,6 +150,11 @@ main {
   top: 0;
   height: 100%;
   width: 25%;
+}
+
+.nav_item img {
+  max-width: 4rem;
+  max-height: 2rem;
 }
 
 .sidebar--open {

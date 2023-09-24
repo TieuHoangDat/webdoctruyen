@@ -29,9 +29,23 @@
           <img src={% static "index/image/sidebar.svg" %} alt="Open_Sidebar">
         </button>
       </li>
-      <li><button>
+      <li class="nav_item logo">
+        <a href="/" >
+          <img src={% static "index/image/logo.svg" %} alt="Logo">
+          <span>Webnovel</span>
+        </a>
+      </li>
+      <li>
+     
+        {% if user.authenticated %}
+        <button><a href="{% url 'login' %}">
         <img src={% static "index/image/login.svg" %} alt="Login icon"><span style="font-weight: bold;">Đăng nhập</span>
-      </button></li>
+      </a></button></li>
+      {% else %}
+      <button class="p-1">
+        <img src={% static "index/image/user.svg" %} alt="UserIcon">
+</button></li>
+      {% endif %}
     </ul>
   </nav>
   <div>

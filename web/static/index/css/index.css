@@ -8,11 +8,10 @@ header {
   padding: 20px 0;
 }
 
-/* .Book_list {
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: repeat(5, 1fr);
-} */
+.Book_list {
+  margin: 0;
+  padding: 0;
+}
 
 .Novelcard {
   position: relative;
@@ -21,8 +20,8 @@ header {
   border-radius: 20px; */
   padding: 2px;
   max-width: 300px;
-  max-height: 40vh;
-  min-width: 20vh;
+  max-height: 40vmin;
+  min-width: 20vmin;
   width: 10vw;
   margin: 20px;
   text-align: center;
@@ -30,6 +29,7 @@ header {
 }
 .Book_info {
   display: none;
+  overflow: hidden;
 }
 .Novelcard:hover .Book_info {
   position: absolute;
@@ -37,7 +37,13 @@ header {
   top: 0;
   text-align: center;
 }
-
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
 .Novelcard_cover {
   /* display: flex;
   flex-direction: column; */
@@ -66,6 +72,10 @@ header {
 .Novelcard_body {
   color: grey;
   font-size: 1rem;
+  text-overflow: ellipsis;
+}
+.Novelcard_title {
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
