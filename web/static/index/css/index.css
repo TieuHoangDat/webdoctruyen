@@ -1,6 +1,6 @@
 section {
-  width: 80%;
-  margin: auto;
+  max-width: 100%;
+  width: 100%;
 }
 
 header {
@@ -8,41 +8,68 @@ header {
   padding: 20px 0;
 }
 
-.Book_list {
-  max-width: 100%;
-  margin: auto;
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  list-style: none;
-  padding: 0;
-}
+/* .Book_list {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(5, 1fr);
+} */
 
-.Novel_card {
+.Novelcard {
+  position: relative;
   box-shadow: 0 4px 8px 0 rgba(213, 210, 210, 0.2);
-  border: 1px solid;
-  border-radius: 20px;
+  /* border: 1px solid;
+  border-radius: 20px; */
   padding: 2px;
   max-width: 300px;
+  max-height: 40vh;
+  min-width: 20vh;
   width: 10vw;
   margin: 20px;
   text-align: center;
   font-family: arial;
 }
-
-.Cover {
-  max-width: 100%;
-  height: auto;
+.Book_info {
+  display: none;
+}
+.Novelcard:hover .Book_info {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
 }
 
-.Card_info .Title {
+.Novelcard_cover {
+  /* display: flex;
+  flex-direction: column; */
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.extra {
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  overflow-y: hidden;
+}
+
+.Novelcard_img {
+  border-radius: 20px;
+  width: 100%;
+  height: 70%;
+}
+
+.Novelcard_body {
   color: grey;
   font-size: 1rem;
   text-overflow: ellipsis;
 }
 
-.Card_info > div > span {
+.Novelcard_body > div > span {
   display: inline-block;
   margin: 2px;
   padding: 2px 4px;
