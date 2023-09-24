@@ -42,8 +42,17 @@ def loginPage(request):
     context = {}
     return render(request, 'login.html', context)
 
-def chapter(request):
-    return HttpResponse("chapter")
+def chapter(request,chapter_id):
+    chapter = Chapter.objects.get(id=chapter_id)
+    path = chapter.path
+    with open(path,mode="r", encoding="utf-8") as file:
+       content =  file.read()
+       print(content)
+    context = {
+        "chapter" : chapter,
+        "content" : content
+     }
+    return render(request, "web/chapter.html", context=context)
 
 def novel(request, novel_id):
     return HttpResponse(novel_id)
