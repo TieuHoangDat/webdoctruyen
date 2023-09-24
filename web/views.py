@@ -22,6 +22,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('login')
     context = {'form':form}  
     return render(request, 'register.html', context)
 
