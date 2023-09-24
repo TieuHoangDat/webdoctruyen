@@ -42,9 +42,9 @@
         <img src={% static "index/image/login.svg" %} alt="Login icon"><span style="font-weight: bold;">Đăng nhập</span>
       </a></button></li>
       {% else %}
-      <button>
+      <button class="d-flex flex-row p-1">
         <img src={% static "index/image/user.svg" %} alt="UserIcon">
-</button></li>
+<span>{{user.username}}</span></button></li>
       {% endif %}
     </ul>
   </nav>
