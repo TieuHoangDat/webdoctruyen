@@ -36,6 +36,7 @@ header {
 .Novelcard:hover .Book_info {
   padding: 5px;
   z-index: 99;
+  opacity: 0.8;
   border-radius: 20px;
   background-color: antiquewhite;
   display: block;

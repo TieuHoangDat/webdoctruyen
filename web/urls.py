@@ -7,4 +7,7 @@ urlpatterns = [
     # path("login",views.login,name="login"),
     path('register/', views.register, name="register"),
     path('login/', views.loginPage, name="login"),
+    path('chapter/<int:chapter_id>', views.chapter, name="chapter"),
+    path('novel/<int:novel_id>',views.novel,name="book"),
+    path('novel/<int:novel_id>/catalog', views.catalog, name="catalog")
 ]

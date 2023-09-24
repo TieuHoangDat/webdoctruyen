@@ -41,3 +41,11 @@ def loginPage(request):
 
     context = {}
     return render(request, 'login.html', context)
+
+def chapter(request):
+    return HttpResponse("chapter")
+
+def novel(request, novel_id):
+    return HttpResponse(novel_id)
+def catalog(request):
+    return HttpResponse("Catalog")

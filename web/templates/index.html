@@ -9,7 +9,7 @@
   <div class="Book_list  row justify-content-md-around justify-content-lg-around justify-content-sm-around">
     {% for novel in top_like %}
     
-    <a href="#" class="Novelcard col ">
+    <a href="{% url 'book' novel.id%}" class="Novelcard col ">
       <div class="Book_info">
         {{novel.title}}
       </div>
