@@ -91,7 +91,7 @@ button {
   }
 }
 
-.navbar {
+.navbar_my {
   display: flex;
   align-items: center;
   background-color: var(--nav_color);
@@ -127,8 +127,10 @@ button {
   border-radius: 10px;
   background-color: var(--btn_color);
 }
-
-.logo {
+.nav_item {
+  max-height: 100%;
+}
+.logo > a {
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'novel/novel.css' %}
+" />
+{% endblock %}
+
+{% block content %}
+  <div class="main_info">
+    <div class="title">{{ NovelInfo.title }}</div>
+    <div class="cover">
+      <img src="{{ NovelInfo.cover }}" loading="lazy" alt="cover" />
+    </div>
+    <div class="infos">
+      {% for author in AuthorInfo %}
+        <div>{{ author.name }}</div>
+      {% endfor %}
+      <div>
+        {% for genre in GenreInfo %}
+          <span class="genre">{{ genre.name }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="user_action">
+      <button>Yo</button>
+    </div>
+  </div>
+{% endblock %}

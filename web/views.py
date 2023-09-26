@@ -47,7 +47,7 @@ def chapter(request,chapter_id):
     path = chapter.path
     with open(path,mode="r", encoding="utf-8") as file:
        content =  file.read()
-       print(content)
+      # print(content)
     context = {
         "chapter" : chapter,
         "content" : content
@@ -55,6 +55,12 @@ def chapter(request,chapter_id):
     return render(request, "web/chapter.html", context=context)
 
 def novel(request, novel_id):
-    return HttpResponse(novel_id)
+    novelObj =  Novel.objects.get(id=novel_id)
+    context = {
+        "NovelInfo" : novelObj,
+        "AuthorInfo" : novelObj.authors.all(),
+        "GenreInfo" : novelObj.genres.all()
+    }
+    return render(request,"web/novel.html",context=context)
 def catalog(request):
     return HttpResponse("Catalog")
