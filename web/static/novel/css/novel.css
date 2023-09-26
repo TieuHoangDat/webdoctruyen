@@ -1,0 +1,139 @@
+.main_info {
+    max-height:max-content;
+    height: 40vmin;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "b a" "b c" "b d";
+    grid-template-columns: auto 2fr;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 10px;
+}
+.main_info span {
+    font-weight: 500;
+}
+
+.main_info img {
+    height: 100%;
+    width: 1.5rem;
+}
+
+.cover {
+    box-sizing: border-box;
+    grid-area: b;
+    max-height: 300px;
+    max-width: 200px;
+    width: 100%;
+    padding: 2px;
+    border-radius: 20px;
+}
+
+.cover > img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1vmin;
+    grid-area: c;
+}
+
+.title {
+    grid-area: a;
+    background-color: bisque;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 3px;
+    text-align: center;
+}
+
+.author {
+    font-weight: 500;
+    width: auto;
+    height: 1.5rem;
+}
+
+
+
+
+
+.genres {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2px;
+    flex-wrap: wrap;
+    width: auto;
+    height: 1.5rem;
+}
+span {
+    margin-left: 5px;
+}
+.genre {
+    padding: 0.4vmin;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: aqua;
+    font-weight: 500;
+}
+
+.user_action {
+    grid-area: d;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1vmin
+    ;
+}
+
+.catalogBtn {
+    box-sizing: border-box;
+    border: 2px solid;
+    border-color: rgb(11, 4, 33);
+    border-radius: 10px;
+    padding: 3px;
+    background-color: rgb(104, 104, 237);
+    color: aliceblue;
+    font-weight: 600;
+
+}
+
+.catalogBtn:hover {
+    opacity: 0.9;
+}
+
+@media only screen and (max-width:600px){
+    .main_info{grid-template-areas: "a a" "b c" "d d";
+        }
+    .cover {
+        min-width: none;
+        min-height: none;
+    }
+    .main_info span {
+        font-size: smaller;
+    }
+    .title {
+        text-align: center;
+    }
+
+}
+
+@media only screen and (max-width:800px){
+    .cover {
+        height: 30vmin;
+        width: 20vmin;
+    }
+    .main_info span {
+        font-size: small;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+}

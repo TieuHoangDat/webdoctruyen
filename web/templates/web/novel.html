@@ -1,28 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block css %}
-  <link rel="stylesheet" href="{% static 'novel/novel.css' %}
+  <link rel="stylesheet" href="{% static 'novel/css/novel.css' %}
 " />
 {% endblock %}
 
 {% block content %}
   <div class="main_info">
-    <div class="title">{{ NovelInfo.title }}</div>
+    <h3 class="title">{{ NovelInfo.title }}</h3>
     <div class="cover">
       <img src="{{ NovelInfo.cover }}" loading="lazy" alt="cover" />
     </div>
     <div class="infos">
-      {% for author in AuthorInfo %}
-        <div>{{ author.name }}</div>
-      {% endfor %}
-      <div>
+      <div class="author">
+        {% for author in AuthorInfo %}
+          <span><img src="{% static 'novel/image/author.svg' %}" alt="AuthorIcon" /></span>
+          <span>{{ author.name }}</span>
+        {% endfor %}
+      </div>
+      <div class="genres">
+        <img src="{% static 'novel/image/type.svg' %}" alt="" />
         {% for genre in GenreInfo %}
           <span class="genre">{{ genre.name }}</span>
         {% endfor %}
       </div>
+      <div class="status">
+        <img src="{% static 'novel/image/status.svg' %}" alt="statusIcon" />
+        <span>{{ NovelInfo.status }}</span>
+        <span><img src="{% static 'novel/image/clock.svg' %}" alt="time" /></span><span>{{ NovelInfo.published_time }}</span>
+      </div>
+      <div>
+        <span>Rating:</span>
+        <span>{{ NovelInfo.rating }}/5</span><span>({{ NovelInfo.total_likes }} lượt đánh giá)</span>
+      </div>
     </div>
     <div class="user_action">
-      <button>Yo</button>
+      <a href="{% url 'catalog' NovelInfo.id %}" class="catalogBtn">
+        <img src="{% static 'novel/image/categories.svg' %}" alt="category" />
+        <span>Chương tiết</span>
+      </a>
     </div>
   </div>
 {% endblock %}
