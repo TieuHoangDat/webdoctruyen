@@ -237,7 +237,7 @@ img + * {
 
 }
 
-@media only screen and (max-width:900px){
+@media only screen and (max-width:950px){
     .NovelPage {
         padding: 2vmin;
     }
@@ -247,7 +247,7 @@ img + * {
 
     }
     .title {
-        margin-bottom: 4vmin;
+        margin-bottom: -4vmin;
     }
     .cover {
         height: 30vmin;
@@ -266,7 +266,7 @@ img + * {
         overflow: hidden;
     }
 }
-@media only screen and (max-width:400px){
+@media only screen and (max-width:420px){
     .NovelPage {
         padding: 2vmin;
     }
@@ -290,14 +290,23 @@ img + * {
     .genre {
         overflow: hidden;
     }
+    .btn {
+        padding: 2px 2px 2px 2px;
+        margin-left: 1vmin;
+    }
+    .btn > * {
+        font-size: small;
+    }
 }
 .section-island {
+    background-color: aliceblue;
     border: 0.5px solid rgb(69, 219, 97);
     border-radius: 5px;
     width: 100%;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
+    flex-direction: column;
     gap: 10px;
     padding: 5vmin;
     margin: auto;
@@ -310,12 +319,14 @@ img + * {
 .island-header > a {
     background-color: aquamarine;
     flex-grow: 1;
-    border: 1px solid rgb(90, 72, 192);
+    border-right: 1px solid rgb(90, 72, 192);
+    border-left: 1px solid rgb(90, 72, 192);
+    border-top: 1px solid rgb(90, 72, 192);
     border-radius: 5px;
     text-align: center;
 }
 .header_active {
-    border-bottom: 3px solid black;
+    border-bottom: 4px solid rgb(192, 66, 194);
 }
 .island-header span {
     font-weight: 600;
@@ -323,4 +334,14 @@ img + * {
 .island-header img {
     max-height: 1.5rem;
     max-width: 1.5rem;
+}
+
+.content_island {
+    padding: 3vmin;
+}
+.content_island  h3 {
+    border-bottom: 0.5px solid black;
+}
+.content_island > div {
+    margin-bottom: 1vmin;
 }

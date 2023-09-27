@@ -129,7 +129,7 @@ angelina.addEventListener("mouseleave", () => {
   </script>
   <section class="section-island">
     <header class="island-header d-flex justify-content-around">
-        <a href="{% url 'book' NovelInfo.id%}">
+        <a href="{% url 'book' NovelInfo.id%}" class="header_active">
           <img src="{% static 'novel/image/overview.svg' %}" alt="overview">
           <span>Tổng quan</span>
         </a>
@@ -137,8 +137,25 @@ angelina.addEventListener("mouseleave", () => {
           <img src="{% static 'novel/image/discuss.svg' %}" alt="discuss"><span>Thảo luận</span>
         </a>
     </header>
-    <section class="content_island">
-      {% block content_island %}{% endblock content_island %}
-    </section>
+    <div class="content_island">
+      {% block content_island %}
+        <div class="description">
+          <h3>Giới thiệu</h3>
+          <div class="description_content">{{NovelInfo.description|safe}}</div>
+        </div>
+        <div class="tagIsland">
+          <h3>Từ khóa</h3>
+          <div class="description_content">
+            {% for tag in GenreInfo %}
+              <a href="#">#{{tag.name}}</a>
+            {% endfor %}
+          </div>
+        </div>
+        <div>
+            <h3>Đánh giá nổi bật</h3>
+            <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem suscipit dolor accusamus adipisci distinctio officia amet, praesentium nemo dolorem iste provident alias fuga nostrum commodi doloribus expedita consectetur sed optio.</div>
+        </div>
+      {% endblock content_island %}
+    </div>
   </section>
 {% endblock %}
