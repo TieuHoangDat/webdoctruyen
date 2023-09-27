@@ -23,6 +23,7 @@
 }
 
 body {
+  background-color:rgb(234, 223, 223);
   margin: 0;
   height: 100vh;
   display: flex;

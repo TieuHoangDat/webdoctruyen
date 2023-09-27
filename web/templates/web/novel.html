@@ -57,7 +57,7 @@
             <button class="dropdown-item btn-primary" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/eye.svg' %}" alt="reading" />Đang đọc <img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
           </li>
           <li>
-            <button class="dropdown-item btn-secondary" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/pause.svg' %}" alt="pause" />Tạm dừng<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+            <button class="dropdown-item btn-warning" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/pause.svg' %}" alt="pause" />Tạm dừng<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
           </li>
           <li>
             <button class="dropdown-item btn-danger" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/trash.svg' %}" alt="trash" />Vứt bỏ<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
@@ -127,4 +127,18 @@ angelina.addEventListener("mouseleave", () => {
       return -deg+15
     }
   </script>
+  <section class="section-island">
+    <header class="island-header d-flex justify-content-around">
+        <a href="{% url 'book' NovelInfo.id%}">
+          <img src="{% static 'novel/image/overview.svg' %}" alt="overview">
+          <span>Tổng quan</span>
+        </a>
+        <a href="{% url 'discuss' NovelInfo.id %}">
+          <img src="{% static 'novel/image/discuss.svg' %}" alt="discuss"><span>Thảo luận</span>
+        </a>
+    </header>
+    <section class="content_island">
+      {% block content_island %}{% endblock content_island %}
+    </section>
+  </section>
 {% endblock %}

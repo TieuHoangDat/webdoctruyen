@@ -105,6 +105,7 @@
     width: 1.5rem;
 }
 
+
 .cover {
     box-sizing: border-box;
     grid-area: b;
@@ -242,7 +243,35 @@ img + * {
     }
     .main_info{grid-template-areas: "a a" "b c" "d d";
         height: 60vmin;
+        gap:1px;
 
+    }
+    .title {
+        margin-bottom: 4vmin;
+    }
+    .cover {
+        height: 30vmin;
+        width: 20vmin;
+    }
+    .main_info span {
+        font-size: small;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .infos span {
+        font-size: small;
+    }
+    .genre {
+        overflow: hidden;
+    }
+}
+@media only screen and (max-width:400px){
+    .NovelPage {
+        padding: 2vmin;
+    }
+    .main_info{grid-template-areas: "a a" "b c" "d d";
+        height: 70vmin;
     }
   
     .cover {
@@ -261,4 +290,37 @@ img + * {
     .genre {
         overflow: hidden;
     }
+}
+.section-island {
+    border: 0.5px solid rgb(69, 219, 97);
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 10px;
+    padding: 5vmin;
+    margin: auto;
+}
+.island-header {
+    width: 100%;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+}
+.island-header > a {
+    background-color: aquamarine;
+    flex-grow: 1;
+    border: 1px solid rgb(90, 72, 192);
+    border-radius: 5px;
+    text-align: center;
+}
+.header_active {
+    border-bottom: 3px solid black;
+}
+.island-header span {
+    font-weight: 600;
+}
+.island-header img {
+    max-height: 1.5rem;
+    max-width: 1.5rem;
 }
