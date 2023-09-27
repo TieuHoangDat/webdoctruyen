@@ -6,6 +6,17 @@
 {% endblock %}
 
 {% block content %}
+<div class="NovelPage">
+  <div class="angelina">
+    <div class="img_angelina">
+    <img id="agl" src="{% static 'novel/image/angelina.png' %}" alt="angelina">
+    <div class="eye-socket left">
+      <div class="dot"></div>
+    </div>
+    <div class="eye-socket right">      <div class="dot"></div>
+  </div>
+  </div>
+  </div>
   <div class="main_info">
     <h3 class="title">{{ NovelInfo.title }}</h3>
     <div class="cover">
@@ -35,10 +46,85 @@
       </div>
     </div>
     <div class="user_action">
-      <a href="{% url 'catalog' NovelInfo.id %}" class="catalogBtn">
+      <a href="{% url 'catalog' NovelInfo.id %}" class="btn btn-info">
         <img src="{% static 'novel/image/categories.svg' %}" alt="category" />
         <span>Chương tiết</span>
       </a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Đánh dấu</button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <button class="dropdown-item btn-primary" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/eye.svg' %}" alt="reading" />Đang đọc <img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-secondary" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/pause.svg' %}" alt="pause" />Tạm dừng<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-danger" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/trash.svg' %}" alt="trash" />Vứt bỏ<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-info" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/calender.svg' %}" alt="calender" />Đọc sau<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-success" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/successful.svg' %}" alt="successful" />Hoàn thành<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+</div>
+  <script>
+    function handleReadingStatus(e) {
+      let statusBtn = document.getElementById('dropdownMenuButton1')
+       statusBtn.innerHTML = e.target.innerHTML
+      if(e.target.classList.length == 2){
+        statusBtnClassList  = statusBtn.classList
+        statusBtnClassList.replace(statusBtnClassList[1],e.target.classList[1])
+
+
+      }
+    }
+const angelina = document.querySelector(".img_angelina");
+
+angelina.addEventListener("mouseenter", () => {
+  angelina.classList.remove("reverse_sink");
+  angelina.classList.add("sink");
+});
+
+angelina.addEventListener("mouseleave", () => {
+  angelina.classList.remove("sink");
+  angelina.classList.add("reverse_sink");
+});
+
+    document.addEventListener("mousemove", (e) => {
+      //console.log(e)
+
+      const mouseX =e.clientX
+      const mouseY= e.clientY
+      const agl = document.getElementById("agl")
+      const  aglRect = agl.getBoundingClientRect()
+     
+      
+      
+      const X = aglRect.left + aglRect.width / 2
+      const Y = aglRect.top + aglRect.height / 2
+      const deg = angle(X,Y,mouseX,mouseY)
+
+      const eyes = document.getElementsByClassName("eye-socket")
+     for(let i=0;i<eyes.length;i++){
+      eyes[i].style.transform = `rotate(${deg}deg)`
+
+     }
+
+
+    })
+
+    function angle(aglX,aglY,mouseX,mouseY){
+      const dx = mouseX - aglX
+      const dy = mouseY - aglY
+      const rad = Math.atan2(dx,dy)
+      const deg = rad * 180 / Math.PI
+      return -deg+15
+    }
+  </script>
 {% endblock %}

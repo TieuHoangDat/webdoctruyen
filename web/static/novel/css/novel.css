@@ -1,5 +1,91 @@
+.NovelPage {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 5vmin;
+    /* background-color: aquamarine; */
+}
+.angelina {
+    display: flex;
+    /* transform: translateY(50px); */
+}
+.img_angelina {
+    position: relative;
+
+}
+.angelina  img {
+    margin-left: 5vmin;
+    max-width: 20vmin;
+    max-height: 20vmin;
+}
+.eye-socket {
+    margin-left: 5vmin;
+    font-size: larger;
+    border-radius: 100%;
+    width: 1.3vmin;
+    height: 1.3vmin;
+    background-color: black;
+          
+    background-color: white;
+           
+    position: relative;
+    transform: rotate(200deg);
+
+
+    
+}
+@keyframes sink {
+    0% {
+      transform: translateY(0); /* Không thay đổi vị trí ban đầu */
+    }
+    50% {
+      transform: translateY(30%); /* Dịch chuyển hình ảnh xuống dưới */
+    }
+    100% {
+      transform: translateY(40%); 
+    }
+  }
+  @keyframes reverse_sink {
+    0% {
+      transform: translateY(40%); /* Không thay đổi vị trí ban đầu */
+    }
+    50% {
+      transform: translateY(30%); /* Dịch chuyển hình ảnh xuống dưới */
+    }
+    100% {
+      transform: translateY(0); 
+    }
+  }
+.sink {
+    animation: sink 2s ease forwards;
+}
+.reverse_sink {
+    animation: reverse_sink 2s ease forwards;
+}
+.dot {
+   
+        width:0.7vmin;
+        height: 0.7vmin;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+
+}
+.left {
+    position: absolute;
+    top: 9.4vmin;
+    left: 11vmin;
+}
+.right {
+    position: absolute;
+    top: 10.2vmin;
+    left: 6.5vmin;
+}
 .main_info {
-    max-height:max-content;
+    border: 0.5px solid rgb(69, 219, 97);
+    border-radius: 5px;
     height: 40vmin;
     width: 100%;
     display: grid;
@@ -8,6 +94,7 @@
     /* justify-content: space-between; */
     align-items: center;
     gap: 10px;
+    
 }
 .main_info span {
     font-weight: 500;
@@ -35,12 +122,13 @@
     object-fit: cover;
 }
 .infos {
-    display: flex;
+     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1vmin;
+    align-items: flex-start; 
+    gap: 2vmin;
     grid-area: c;
+    
 }
 
 .title {
@@ -58,7 +146,11 @@
     height: 1.5rem;
 }
 
-
+.status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 
 
@@ -67,19 +159,27 @@
     flex-direction: row;
     justify-content: flex-start;
     gap: 2px;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     width: auto;
     height: 1.5rem;
+    overflow-x:scroll;
+
 }
+.genres::-webkit-scrollbar {
+    display: none;
+}
+
 span {
     margin-left: 5px;
 }
 .genre {
-    padding: 0.4vmin;
+    padding: 0.2vmin 0.4vmin 0.2vmin 0.5vmin;
     border: 1px solid;
     border-radius: 10px;
     background-color: aqua;
     font-weight: 500;
+    font-size: small;
+   
 }
 
 .user_action {
@@ -107,8 +207,20 @@ span {
 .catalogBtn:hover {
     opacity: 0.9;
 }
-
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3px;
+}
+img + * {
+    margin-left: 3px;
+}
 @media only screen and (max-width:600px){
+    .NovelPage {
+        padding: 1vmin;
+    }
     .main_info{grid-template-areas: "a a" "b c" "d d";
         }
     .cover {
@@ -124,7 +236,15 @@ span {
 
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:900px){
+    .NovelPage {
+        padding: 2vmin;
+    }
+    .main_info{grid-template-areas: "a a" "b c" "d d";
+        height: 60vmin;
+
+    }
+  
     .cover {
         height: 30vmin;
         width: 20vmin;
@@ -135,5 +255,10 @@ span {
         white-space: nowrap;
         overflow: hidden;
     }
-
+    .infos span {
+        font-size: small;
+    }
+    .genre {
+        overflow: hidden;
+    }
 }
