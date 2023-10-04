@@ -7,6 +7,31 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # Create your views here.
 
+def get_genre_list():
+    return Genre.objects.all()
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST["searched"]
+        keys = Novel.objects.filter(title__contains = searched)
+        # Lọc theo trạng thái
+        status = request.POST["status"]
+        if status:
+            keys = keys.filter(status=status)
+
+        # Lọc theo đánh giá
+        rate = request.POST["rate"] 
+        if rate:       
+            keys = keys.filter(rating__gte=rate)
+
+        # Lọc theo trạng thái
+        genre = request.POST["genre"]
+        if genre:
+            keys = keys.filter(genres=genre)
+    return render(request, 'search.html', {"searched": searched, "keys":keys})   
+
+
+
 def index(request):
     top_like =  Novel.objects.all().order_by("-total_likes")[5:13]
 
@@ -41,6 +66,10 @@ def loginPage(request):
 
     context = {}
     return render(request, 'login.html', context)
+
+def logoutPage(request):
+    logout(request)
+    return redirect('index')
 
 def chapter(request,chapter_id):
     chapter = Chapter.objects.get(id=chapter_id)

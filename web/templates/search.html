@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load custom_filter %} {% load static %}
+  {% block css %} <link rel="stylesheet" href="{% static "index/css/index.css" %}"> {% endblock %}
+{% load static %}
+
+    
+    {% block register%}
+      <h5>Kết quả tìm kiếm của "{{searched}}"</h5> <br/>
+      <div class="container">
+        <div class="Book_list  row justify-content-md-around justify-content-lg-around justify-content-sm-around">
+          {% for novel in keys %}
+          
+          <a href="{% url 'book' novel.id%}" class="Novelcard col ">
+            <div class="Book_info">
+              {{novel.title}}
+            </div>
+            <div class="Novelcard_cover">
+                <img class="Novelcard_img" src="{{novel.cover}}" alt="Cover" />
+              <div class="extra">
+                <div class="score">
+                  <span class="star text-responsive">
+                    {% comment %} {% with score = novel.rating  %} {% endcomment %}
+                    {{ novel.rating|rating_star:"⭐" }}
+                    {% comment %} {% endwith %} {% endcomment %}
+                  </span>
+                  <span class="rating text-responsive">{{novel.rating}}</span>
+                </div>
+                
+              </div>
+            </div>
+            <div class="Novelcard_body">
+              <p class="Novelcard_title h6">{{novel.title}}</p>
+              <div class="Novelcard_text">
+                {% for genre in novel.genres.all %}
+                <span class="border border-primary rounded-pill p-1 genre"
+                  >{{genre.name}}</span
+                >
+                {% endfor %}
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+        </ul>
+    
+    {% endblock register%}
+  

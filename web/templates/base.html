@@ -8,8 +8,7 @@
     
     {% block title %}
     <title>Đọc truyện miễn cmn phí</title>
-    {% endblock %} <link rel="stylesheet" href={% static "index/css/base.css" %}
-    >
+    {% endblock %} <link rel="stylesheet" href={% static "index/css/base.css" %}>
     {% block css %}
     {% endblock %}
   </head>
@@ -17,10 +16,58 @@
 <body >
   <div class="Sidebar">
         <ul style="display: flex; flex-direction: row;justify-content: center;align-items: center;list-style-type: none;">
-            <li>one</li>
+            <li>One</li>
             <li>two</li>
-            <li><button onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>
+            <li><button onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>         
         </ul>
+        
+        
+          
+          <h4>Tìm truyện theo bộ lọc</h4>
+          <form  role="search" method = POST action = "{% url 'search' %}">           
+            <section>
+              {% csrf_token %}
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Từ khóa" aria-label="Search" name = "searched">
+                <button class="btn btn-outline-success" type="submit">Tìm</button>
+              </form>
+              <details open>
+                <summary>Lọc theo Trạng thái</summary>
+                <select name="status">
+                  <option value="">Tất cả</option>
+                  <option value="Đang ra">Đang ra</option>
+                  <option value="Full">Full</option>            
+                </select>
+              </details> 
+
+              <details open>
+                <summary>Lọc theo đánh giá</summary>
+                <input type="number" name="rate" placeholder="Filter by Rating" value="{{rate}}">
+              </details> 
+
+              <details open>
+                <summary>Lọc theo Thể loại</summary>
+                <select name="genre">
+                  <option value="" >Tất cả</option>
+                  <option value="1">Tiên Hiệp</option>
+                  <option value="2">Kiếm Hiệp</option>           
+                  <option value="3">Ngôn Tình</option>           
+                  <option value="4">Đô Thị</option>           
+                  <option value="5">Khoa Huyễn</option>           
+                  <option value="6">Võng Du</option>           
+                  <option value="7">Dị Giới</option>           
+                  <option value="8">Huyền Huyễn</option>           
+                  <option value="9">Linh Dị</option>           
+                </select>
+              </details> 
+    
+              
+            </section> 
+          </form>
+          
+            
+         
+        
   </div>
   <nav class="navbar_my">
     <ul class="nav_list">
@@ -36,16 +83,18 @@
         </a>
       </li>
       <li>
-     
         {% if not user.is_authenticated %}
-        <button><a href="{% url 'login' %}">
-        <img src={% static "index/image/login.svg" %} alt="Login icon"><span style="font-weight: bold;">Đăng nhập</span>
-      </a></button></li>
-      {% else %}
-      <button class="d-flex flex-row p-1">
-        <img src={% static "index/image/user.svg" %} alt="UserIcon">
-<span>{{user.username}}</span></button></li>
-      {% endif %}
+          <button><a href="{% url 'login' %}">
+          <img src={% static "index/image/login.svg" %} alt="Login icon"><span style="font-weight: bold;">Đăng nhập</span>
+          </a></button></li>
+        {% else %}
+              <button class="d-flex flex-row p-1">
+                <img src={% static "index/image/user.svg" %} alt="UserIcon">
+                <span>{{user.username}}</span></button>
+              <button class="d-flex flex-row p-1"><a href="{% url 'logout'%}">Đăng xuất</a></button>
+         
+        </li> 
+        {% endif %}
     </ul>
   </nav>
   <div>
