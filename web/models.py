@@ -54,6 +54,7 @@ class Chapter(models.Model):
 class Comment(models.Model):
     novel = models.ForeignKey(Novel, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    parent_id = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     comment_text = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
 
