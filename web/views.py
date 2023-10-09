@@ -7,6 +7,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # Create your views here.
 
+def add_comment(request, novel_id):
+    if request.method == 'POST':
+        novel = Novel.objects.get(pk=novel_id)
+        comment_text = request.POST.get('comment_text')
+        if comment_text!="":
+            Comment.objects.create(novel=novel, user=request.user, comment_text=comment_text)
+    return redirect('discuss', novel_id=novel_id)
+
+
 def get_genre_list():
     return Genre.objects.all()
 
@@ -24,7 +33,7 @@ def search(request):
         if rate:       
             keys = keys.filter(rating__gte=rate)
 
-        # Lọc theo trạng thái
+        # Lọc theo thể loại
         genre = request.POST["genre"]
         if genre:
             keys = keys.filter(genres=genre)
@@ -91,5 +100,15 @@ def novel(request, novel_id):
         "GenreInfo" : novelObj.genres.all()
     }
     return render(request,"web/novel.html",context=context)
+
+def discuss(request, novel_id):
+    novelObj =  Novel.objects.get(id=novel_id)
+    context = {
+        "NovelInfo" : novelObj,
+        "AuthorInfo" : novelObj.authors.all(),
+        "GenreInfo" : novelObj.genres.all()
+    }
+    return render(request,"web/discuss.html",context=context)
+
 def catalog(request):
     return HttpResponse("Catalog")

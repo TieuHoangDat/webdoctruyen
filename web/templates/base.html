@@ -14,11 +14,9 @@
   </head>
 </html>
 <body >
-  <div class="Sidebar">
-        <ul style="display: flex; flex-direction: row;justify-content: center;align-items: center;list-style-type: none;">
-            <li>One</li>
-            <li>two</li>
-            <li><button onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>         
+  <div class="Sidebar" class="content">
+        <ul style="display: flex; flex-direction: row;justify-content: right;align-items: center;list-style-type: none;">
+            <li><button id="hideOverlayButton" onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>         
         </ul>
         
         
@@ -32,12 +30,13 @@
                 <button class="btn btn-outline-success" type="submit">Tìm</button>
               </form>
               <details open>
-                <summary>Lọc theo Trạng thái</summary>
+                <summary>Lọc theo trạng thái</summary>
                 <select name="status">
                   <option value="">Tất cả</option>
                   <option value="Đang ra">Đang ra</option>
                   <option value="Full">Full</option>            
-                </select>
+                </select> 
+              
               </details> 
 
               <details open>
@@ -46,7 +45,7 @@
               </details> 
 
               <details open>
-                <summary>Lọc theo Thể loại</summary>
+                <summary>Lọc theo thể loại</summary>
                 <select name="genre">
                   <option value="" >Tất cả</option>
                   <option value="1">Tiên Hiệp</option>
@@ -64,15 +63,15 @@
               
             </section> 
           </form>
-          
-            
-         
-        
+                 
   </div>
+
+  <div class="overlay"></div>
+
   <nav class="navbar_my">
     <ul class="nav_list">
       <li class="nav_item">
-        <button onclick="Open_Sidebar()">
+        <button id="showOverlayButton" onclick="Open_Sidebar()">
           <img src={% static "index/image/sidebar.svg" %} alt="Open_Sidebar">
         </button>
       </li>
@@ -88,12 +87,15 @@
           <img src={% static "index/image/login.svg" %} alt="Login icon"><span style="font-weight: bold;">Đăng nhập</span>
           </a></button></li>
         {% else %}
-              <button class="d-flex flex-row p-1">
-                <img src={% static "index/image/user.svg" %} alt="UserIcon">
-                <span>{{user.username}}</span></button>
-              <button class="d-flex flex-row p-1"><a href="{% url 'logout'%}">Đăng xuất</a></button>
-         
-        </li> 
+              <button style="display: inline-block;" class = "p-1">
+                <img src="{% static 'index/image/user.svg' %}" alt="UserIcon">
+                <span>{{ user.username }}</span>
+            </button>
+            
+            <button style="display: inline-block" class = "p-1">
+                <a href="{% url 'logout' %}">Đăng xuất</a>
+            </button>
+            
         {% endif %}
     </ul>
   </nav>
@@ -112,18 +114,29 @@
 <script>
   function Open_Sidebar(){
       document.getElementsByClassName("Sidebar")[0].classList.add("Sidebar--open")
+      
   }
   function Close_Sidebar(){
     document.getElementsByClassName("Sidebar")[0].classList.remove("Sidebar--open")
   }
   function changeBg() {
-  const checkbox = document.getElementById("Tg");
-  const isChecked = checkbox.checked;
+    const checkbox = document.getElementById("Tg");
+    const isChecked = checkbox.checked;
 
-  if (isChecked) {
-    document.body.classList.replace("bg__black", "bg__white");
-  } else {
-    document.body.classList.replace("bg__white", "bg__black");
+    if (isChecked) {
+      document.body.classList.replace("bg__black", "bg__white");
+    } else {
+      document.body.classList.replace("bg__white", "bg__black");
+    }
   }
-}
+
+  document.getElementById('showOverlayButton').addEventListener('click', function() {
+    // Hiển thị lớp mờ khi nút được nhấn
+    document.querySelector('.overlay').style.display = 'block';
+  });
+  document.getElementById('hideOverlayButton').addEventListener('click', function() {
+    // tắt lớp mờ khi nút được nhấn
+    document.querySelector('.overlay').style.display = 'none';
+  });
+
 </script>

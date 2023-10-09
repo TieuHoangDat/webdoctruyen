@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'novel/css/novel.css' %}
+" />
+{% endblock %}
+
+{% block content %}
+<div class="NovelPage">
+  <div class="angelina">
+    <div class="img_angelina">
+    <img id="agl" src="{% static 'novel/image/angelina.png' %}" alt="angelina">
+    <div class="eye-socket left">
+      <div class="dot"></div>
+    </div>
+    <div class="eye-socket right">      <div class="dot"></div>
+  </div>
+  </div>
+  </div>
+  <div class="main_info">
+    <h3 class="title">{{ NovelInfo.title }}</h3>
+    <div class="cover">
+      <img src="{{ NovelInfo.cover }}" loading="lazy" alt="cover" />
+    </div>
+    <div class="infos">
+      <div class="author">
+        {% for author in AuthorInfo %}
+          <span><img src="{% static 'novel/image/author.svg' %}" alt="AuthorIcon" /></span>
+          <span>{{ author.name }}</span>
+        {% endfor %}
+      </div>
+      <div class="genres">
+        <img src="{% static 'novel/image/type.svg' %}" alt="" />
+        {% for genre in GenreInfo %}
+          <span class="genre">{{ genre.name }}</span>
+        {% endfor %}
+      </div>
+      <div class="status">
+        <img src="{% static 'novel/image/status.svg' %}" alt="statusIcon" />
+        <span>{{ NovelInfo.status }}</span>
+        <span><img src="{% static 'novel/image/clock.svg' %}" alt="time" /></span><span>{{ NovelInfo.published_time }}</span>
+      </div>
+      <div>
+        <span>Rating:</span>
+        <span>{{ NovelInfo.rating }}/5</span><span>({{ NovelInfo.total_likes }} lượt đánh giá)</span>
+      </div>
+    </div>
+    <div class="user_action">
+      <a href="{% url 'catalog' NovelInfo.id %}" class="btn btn-info">
+        <img src="{% static 'novel/image/categories.svg' %}" alt="category" />
+        <span>Chương tiết</span>
+      </a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Đánh dấu</button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <button class="dropdown-item btn-primary" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/eye.svg' %}" alt="reading" />Đang đọc <img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-warning" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/pause.svg' %}" alt="pause" />Tạm dừng<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-danger" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/trash.svg' %}" alt="trash" />Vứt bỏ<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-info" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/calender.svg' %}" alt="calender" />Đọc sau<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+          <li>
+            <button class="dropdown-item btn-success" onclick="handleReadingStatus(event)"><img src="{% static 'novel/image/successful.svg' %}" alt="successful" />Hoàn thành<img style="display: none;" src={% static 'novel/image/chosen.svg' %} alt="chosen"></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    function handleReadingStatus(e) {
+      let statusBtn = document.getElementById('dropdownMenuButton1')
+       statusBtn.innerHTML = e.target.innerHTML
+      if(e.target.classList.length == 2){
+        statusBtnClassList  = statusBtn.classList
+        statusBtnClassList.replace(statusBtnClassList[1],e.target.classList[1])
+
+
+      }
+    }
+const angelina = document.querySelector(".img_angelina");
+
+angelina.addEventListener("mouseenter", () => {
+  angelina.classList.remove("reverse_sink");
+  angelina.classList.add("sink");
+});
+
+angelina.addEventListener("mouseleave", () => {
+  angelina.classList.remove("sink");
+  angelina.classList.add("reverse_sink");
+});
+
+    document.addEventListener("mousemove", (e) => {
+      //console.log(e)
+
+      const mouseX =e.clientX
+      const mouseY= e.clientY
+      const agl = document.getElementById("agl")
+      const  aglRect = agl.getBoundingClientRect()
+     
+      
+      
+      const X = aglRect.left + aglRect.width / 2
+      const Y = aglRect.top + aglRect.height / 2
+      const deg = angle(X,Y,mouseX,mouseY)
+
+      const eyes = document.getElementsByClassName("eye-socket")
+     for(let i=0;i<eyes.length;i++){
+      eyes[i].style.transform = `rotate(${deg}deg)`
+
+     }
+
+
+    })
+
+    function angle(aglX,aglY,mouseX,mouseY){
+      const dx = mouseX - aglX
+      const dy = mouseY - aglY
+      const rad = Math.atan2(dx,dy)
+      const deg = rad * 180 / Math.PI
+      return -deg+15
+    }
+  </script>
+  <section class="section-island">
+    <header class="island-header d-flex justify-content-around">
+        <a href="{% url 'book' NovelInfo.id%}" class="header_active">
+          <img src="{% static 'novel/image/overview.svg' %}" alt="overview">
+          <span>Tổng quan</span>
+        </a>
+        <a href="{% url 'discuss' NovelInfo.id %}">
+          <img src="{% static 'novel/image/discuss.svg' %}" alt="discuss"><span>Thảo luận</span>
+        </a>
+    </header>
+    
+    {% comment %} Add comment {% endcomment %}
+    <div class="content_island" style = "width : 100%;">
+    {% block content_island %}
+        <section >
+            <div class="container text-dark">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6" style = "width : 100%;">
+                  <div class="card" >
+                    <div class="card-body p-4" >
+                      <div class="d-flex flex-start w-100">
+                        <img class="rounded-circle shadow-1-strong me-3"
+                          src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="avatar" width="65" height="65" />
+                          <div class="w-100">
+                            <form method="post" action="{% url 'add_comment' NovelInfo.id %}">
+                              {% csrf_token %}
+                              <h5>Add a comment</h5>
+                              
+                              <div class="form-outline">
+                                <textarea name="comment_text" id="comment_text" class="form-control" id="textAreaExample" rows="4"></textarea>
+                                <label class="form-label" for="textAreaExample">What is your view?</label>
+                              </div>
+                              <div class="d-flex justify-content-between mt-3">                            
+                                <button type="submit" class="btn btn-danger">
+                                  Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Form để người dùng nhập bình luận -->
+            {% comment %} <form method="post" action="{% url 'add_comment' NovelInfo.id %}">
+              {% csrf_token %}
+              <label for="comment_text">Add a comment:</label>
+              <textarea name="comment_text" id="comment_text" rows="4" cols="50"></textarea>
+              <button type="submit">Submit</button>
+          </form> {% endcomment %}
+
+
+      {% comment %} <section style="background-color: #ad655f;"> {% endcomment %}
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10" style = "width : 100%;">
+              <div class="card text-dark">
+
+
+                {% for comment in NovelInfo.comment_set.all %}
+                  {% comment %} <p>{{ comment.comment_text }}</p>
+                  <p>Posted by: {{ comment.user.username }} at {{ comment.date_posted }}</p> {% endcomment %}
+
+                  <div class="card-body p-4">                  
+                    <div class="d-flex flex-start">
+                      <img class="rounded-circle shadow-1-strong me-3"
+                        src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="avatar" width="60"
+                        height="60" />
+                      <div>
+                        <h6 class="fw-bold mb-1">{{ comment.user.username }}</h6>
+                        <div class="d-flex align-items-center mb-3">
+                          <p class="mb-0">
+                            {{ comment.date_posted }}
+                            <span class="badge bg-primary">Pending</span>
+                          </p>
+                          <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+                          <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                          <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                        </div>
+                        <p class="mb-0">
+                          {{ comment.comment_text }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <hr class="my-0" />
+
+                {% empty %}
+                  <p style = "text-align: center;"><strong >Chưa có bình luận nào</strong></p>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      {% comment %} </section> {% endcomment %}
+    
+    
+    
+      {% endblock content_island %}
+    </div>
+  </section>
+{% endblock %}
