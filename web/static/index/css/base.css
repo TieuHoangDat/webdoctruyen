@@ -231,3 +231,55 @@ main {
 .content {
   z-index: 2; /* Đảm bảo nội dung nằm trên lớp mờ */
 }
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Hide inputs */
+.hideinput {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.group {
+  display: flex;
+  align-items: center;
+}
+/* Styles */
+label {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 0.25, 0.5, 1.9);
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    z-index: -1;
+    transition: all 0.25s cubic-bezier(0.25, 0.25, 0.5, 1.9);
+    input[type="radio"] + & {
+      border-radius: 2rem;
+    }
+  }
+}
+/* Checked */
+input:checked + label {
+  /* padding-left: 1em; */
+  color: var(--secondary);
+  &::before {
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid #5656f0;
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+  }
+}

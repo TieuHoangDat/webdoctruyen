@@ -153,11 +153,10 @@ angelina.addEventListener("mouseleave", () => {
                           <div class="w-100">
                             <form method="post" action="{% url 'add_comment' NovelInfo.id %}">
                               {% csrf_token %}
-                              <h5>Add a comment</h5>
+                              <h5>Viết bình luận</h5>
                               
                               <div class="form-outline">
                                 <textarea name="comment_text" id="comment_text" class="form-control" id="textAreaExample" rows="4"></textarea>
-                                <label class="form-label" for="textAreaExample">What is your view?</label>
                               </div>
                               <div class="d-flex justify-content-between mt-3">                            
                                 <button type="submit" class="btn btn-danger">
@@ -204,7 +203,6 @@ angelina.addEventListener("mouseleave", () => {
                         <div class="d-flex align-items-center mb-3">
                           <p class="mb-0">
                             {{ comment.date_posted }}
-                            <span class="badge bg-primary">Pending</span>
                           </p>
                           <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
                           <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>

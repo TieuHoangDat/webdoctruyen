@@ -8,59 +8,98 @@
     
     {% block title %}
     <title>Đọc truyện miễn cmn phí</title>
-    {% endblock %} <link rel="stylesheet" href={% static "index/css/base.css" %}>
+    {% endblock %} 
+    <link rel="stylesheet" href={% static "index/css/base.css" %}>
+    {% comment %} <link href-"{% static "index/css/base.css" %}" rel="stylesheet" /> {% endcomment %}
     {% block css %}
     {% endblock %}
+    <style>
+      
+      
+      
+      
+    </style>
+
   </head>
 </html>
 <body >
-  <div class="Sidebar" class="content">
+  <div class="Sidebar" class="content" >
         <ul style="display: flex; flex-direction: row;justify-content: right;align-items: center;list-style-type: none;">
             <li><button id="hideOverlayButton" onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>         
         </ul>
         
-        
-          
-          <h4>Tìm truyện theo bộ lọc</h4>
+          <h4 style="margin: 20px;">Tìm truyện theo bộ lọc</h4>
           <form  role="search" method = POST action = "{% url 'search' %}">           
-            <section>
+            <section  style="margin: 10px;">
               {% csrf_token %}
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Từ khóa" aria-label="Search" name = "searched">
-                <button class="btn btn-outline-success" type="submit">Tìm</button>
-              </form>
+              <input class="form-control me-2" type="search" placeholder="Từ khóa" aria-label="Search" name = "searched" style = "width : 90%;">
+       
               <details open>
-                <summary>Lọc theo trạng thái</summary>
-                <select name="status">
-                  <option value="">Tất cả</option>
-                  <option value="Đang ra">Đang ra</option>
-                  <option value="Full">Full</option>            
-                </select> 
-              
+                <summary>Lọc theo trạng thái</summary>                 
+                  <div class="group">                   
+                    <input type="radio" class="hideinput" name="status" value="" id="rb1" checked/>
+                    <label for="rb1">Tất cả</label>
+                    <input type="radio" class="hideinput" name="status" value="Đang ra" id="rb2" />
+                    <label for="rb2">Đang ra</label>
+                    <input type="radio" class="hideinput" name="status" value="Full" id="rb3" />
+                    <label for="rb3">Full</label>
+                  </div>          
               </details> 
 
               <details open>
                 <summary>Lọc theo đánh giá</summary>
-                <input type="number" name="rate" placeholder="Filter by Rating" value="{{rate}}">
+                <div class="group">                   
+                  <input type="radio" class="hideinput" name="rate" value="0" id="rb101" checked/>
+                  <label for="rb101">> 0</label>
+                  <input type="radio" class="hideinput" name="rate" value="1" id="rb102" />
+                  <label for="rb102">> 1</label>
+                  <input type="radio" class="hideinput" name="rate" value="2" id="rb103" />
+                  <label for="rb103">> 2</label>
+                  <input type="radio" class="hideinput" name="rate" value="3" id="rb104" />
+                  <label for="rb104">> 3</label>
+                  <input type="radio" class="hideinput" name="rate" value="4" id="rb105" />
+                  <label for="rb105">> 4</label>
+                </div>
               </details> 
 
               <details open>
                 <summary>Lọc theo thể loại</summary>
-                <select name="genre">
-                  <option value="" >Tất cả</option>
-                  <option value="1">Tiên Hiệp</option>
-                  <option value="2">Kiếm Hiệp</option>           
-                  <option value="3">Ngôn Tình</option>           
-                  <option value="4">Đô Thị</option>           
-                  <option value="5">Khoa Huyễn</option>           
-                  <option value="6">Võng Du</option>           
-                  <option value="7">Dị Giới</option>           
-                  <option value="8">Huyền Huyễn</option>           
-                  <option value="9">Linh Dị</option>           
-                </select>
+
+                <div class="group">                   
+                  <input type="radio" class="hideinput" name="genre" value="" id="rb4" checked/>
+                  <label for="rb4">Tất cả</label>
+                  <input type="radio" class="hideinput" name="genre" value="1" id="rb5" />
+                  <label for="rb5">Tiên Hiệp</label>
+                  <input type="radio" class="hideinput" name="genre" value="2" id="rb6" />
+                  <label for="rb6">Kiếm Hiệp</label>
+                </div>            
+                <div class="group">                   
+                  <input type="radio" class="hideinput" name="genre" value="3" id="rb7" />
+                  <label for="rb7">Ngôn Tình</label>
+                  <input type="radio" class="hideinput" name="genre" value="4" id="rb8" />
+                  <label for="rb8">Đô Thị</label>
+                  <input type="radio" class="hideinput" name="genre" value="5" id="rb9" />
+                  <label for="rb9">Khoa Huyễn</label>
+                </div>
+                <div class="group">                   
+                  <input type="radio" class="hideinput" name="genre" value="6" id="rb10" />
+                  <label for="rb10">Võng Du</label>
+                  <input type="radio" class="hideinput" name="genre" value="7" id="rb11" />
+                  <label for="rb11">Dị Giới</label>
+                  <input type="radio" class="hideinput" name="genre" value="8" id="rb12" />
+                  <label for="rb12">Huyền Huyễn</label>
+                </div>
+                <div class="group">                   
+                  <input type="radio" class="hideinput" name="genre" value="9" id="rb13" />
+                  <label for="rb13">Linh Dị</label>
+                  <input type="radio" class="hideinput" name="genre" value="10" id="rb14" />
+                  <label for="rb14">Quân sự</label>
+                  <input type="radio" class="hideinput" name="genre" value="11" id="rb15" />
+                  <label for="rb15">Lịch sử</label>
+                </div>
               </details> 
-    
               
+              <button class="btn btn-outline-success" type="submit" style="margin: 20px 0px 0px 100px;">Tìm</button>
             </section> 
           </form>
                  
