@@ -110,5 +110,11 @@ def discuss(request, novel_id):
     }
     return render(request,"web/discuss.html",context=context)
 
-def catalog(request):
-    return HttpResponse("Catalog")
+def catalog(request, novel_id):
+    novelObj =  Novel.objects.get(id=novel_id)
+    chapters = Chapter.objects.filter(novel=novelObj).order_by('chapter_number')
+    context = {
+        "NovelInfo" : novelObj,
+        'chapters': chapters
+    }
+    return render(request,"web/catalog.html",context=context)

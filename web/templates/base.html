@@ -25,7 +25,8 @@
 <body >
   <div class="Sidebar" class="content" >
         <ul style="display: flex; flex-direction: row;justify-content: right;align-items: center;list-style-type: none;">
-            <li><button id="hideOverlayButton" onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>         
+            {% comment %} <li><button id="hideOverlayButton" onclick="Close_Sidebar()"><img src={% static "index/image/close.svg" %} alt=""></button></li>      {% endcomment %}
+            <button type="button" style="margin: 10px 10px 0px 0px;" class="btn-close" aria-label="Close" id="hideOverlayButton" onclick="Close_Sidebar()"></button>    
         </ul>
         
           <h4 style="margin: 20px;">Tìm truyện theo bộ lọc</h4>
@@ -131,7 +132,7 @@
                 <span>{{ user.username }}</span>
             </button>
             
-            <button style="display: inline-block" class = "p-1">
+            <button style="display: inline-block;" class = "p-1">
                 <a href="{% url 'logout' %}">Đăng xuất</a>
             </button>
             
