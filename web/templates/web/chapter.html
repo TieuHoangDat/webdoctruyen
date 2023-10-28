@@ -1,3 +1,23 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'chapter/css/chapter.css' %}" />
+{% endblock %}
+{% block content %}
   {{ content|safe }}
+  <div class="navigator">
+    <button id="pre"><a href="/chapter/{{ prevChapter }}">< pre</a></button>
+    <button id="tableofContent"><a href="/novel/{{ novelid }}/catalog">Table of Content</a></button>
+    <button id="next"><a href="/chapter/{{ nextChapter }}">next ></a></button>
+  </div>
+  <script>
+    let prevChapter = {{prevChapter}}
+    let nextChapter = {{nextChapter}}
+    let preBtn = document.getElementById('pre')
+    let nextBtn = document.getElementById('next')
+    if(prevChapter == -1)preBtn.disabled = true
+    if(nextBtn == -1) nextBtn.disabled = true
+
+    
+  </script>
 {% endblock %}

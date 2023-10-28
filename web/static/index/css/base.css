@@ -157,7 +157,7 @@ li button img {
 }
 
 main {
-  margin-top: 50px;
+  margin-top: 50px !important;
   width: 60%;
   max-width: 60%;
   margin: auto;
