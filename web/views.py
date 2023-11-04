@@ -68,7 +68,7 @@ def search(request):
 
 
 def index(request):
-    top_like =  Novel.objects.all().order_by("-total_likes")[5:13]
+    top_like =  Novel.objects.all().order_by("-total_likes")[5:17]
 
     context = {
         "top_like" : top_like,
@@ -112,9 +112,25 @@ def chapter(request,chapter_id):
     with open(path,mode="r", encoding="utf-8") as file:
        content =  file.read()
       # print(content)
+ 
+    chapter_number = chapter.chapter_number
+    try:
+        nextChapter =  Chapter.objects.get(chapter_number=chapter_number+1, novel_id=chapter.novel.id).id
+    except:
+        nextChapter = -1
+    try:
+        prevChapter =  Chapter.objects.get(chapter_number=chapter_number-1,novel_id=chapter.novel.id).id
+    except:
+        prevChapter = -1
+   
     context = {
         "chapter" : chapter,
-        "content" : content
+        "content" : content,
+        "nextChapter" : nextChapter,
+        "prevChapter" : prevChapter,
+        "novelid" : chapter.novel.id
+
+       
      }
     return render(request, "web/chapter.html", context=context)
 

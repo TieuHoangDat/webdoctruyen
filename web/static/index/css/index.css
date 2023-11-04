@@ -24,8 +24,8 @@ header {
   max-height: 40vmin;
   min-width: 20vmin;
   width: 10vw;
-  margin: 20px;
-  gap: 1px;
+  /* margin: 20px;
+  gap: 1px; */
   text-align: center;
   font-family: arial;
 }

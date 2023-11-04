@@ -1,3 +1,50 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'chapter/css/chapter.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <div class="controls">
+    <label>Color:<input type="color" id="colorPicker" /></label>
+    <label>Font size:<input type="number" id="fontSize" min="8" max="72" value="16" />px</label>
+    <label>
+      Font family:<select id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+    </label>
+  </div>
   {{ content|safe }}
+  <div class="navigator">
+    <button id="pre"><a href="/chapter/{{ prevChapter }}">< pre</a></button>
+    <button id="tableofContent"><a href="/novel/{{ novelid }}/catalog">Table of Content</a></button>
+    <button id="next"><a href="/chapter/{{ nextChapter }}">next ></a></button>
+  </div>
+  <script>
+    let prevChapter = {{prevChapter}}
+    let nextChapter = {{nextChapter}}
+    let preBtn = document.getElementById('pre')
+    let nextBtn = document.getElementById('next')
+    if(prevChapter == -1)preBtn.disabled = true
+    if(nextChapter == -1) nextBtn.disabled = true
+    document.getElementById("colorPicker").addEventListener("input", function(e) {
+      const content = document.querySelector("main");
+      content.style.color = e.target.value;
+  });
+  
+  document.getElementById("fontSize").addEventListener("input", function(e) {
+      const content = document.querySelector("main");
+      content.style.fontSize = e.target.value + "px";
+  });
+  
+  document.getElementById("fontFamily").addEventListener("change", function(e) {
+      const content = document.querySelector("main");
+      content.style.fontFamily = e.target.value;
+  });
+  
+    
+  </script>
 {% endblock %}
