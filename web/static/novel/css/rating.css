@@ -1,0 +1,51 @@
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  min-width: 120px;
+}
+
+.star-rating.readonly {
+  pointer-events: none;
+}
+
+.star {
+  padding: 0.3rem !important;
+  margin: 0 !important;
+  display: block;
+  float: right;
+  font-size: 1.2rem;
+  color: inherit !important;
+}
+
+.star:after {
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.star.active:after,
+.star.active ~ .star:after {
+  content: "\f005";
+}
+
+.star-rating:hover .star:after,
+.star:after {
+  content: "\f006";
+}
+
+.star:hover:after,
+.star:hover ~ .star:after {
+  content: "\f005" !important;
+}
+
+.star.active {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+/* star rating end */
+  

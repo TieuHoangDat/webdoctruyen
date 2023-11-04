@@ -6,6 +6,32 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # Create your views here.
+def rating(request, novel_id):
+    # Lấy tiểu thuyết cần được đánh giá
+    novel = Novel.objects.get(id=novel_id)
+    
+    if request.method == 'POST':
+        # Nếu yêu cầu là POST, người dùng đã gửi một đánh giá mới hoặc cập nhật đánh giá
+        new_rating_value = int(request.POST.get('starrating'))
+        
+        # Lấy hoặc tạo bản ghi đánh giá cho người dùng hiện tại và tiểu thuyết
+        user = request.user
+        rating, created = Rating.objects.get_or_create(user=user, novel=novel, defaults={'rating_value': new_rating_value})
+        
+        # Nếu bản ghi đánh giá đã tồn tại, cập nhật giá trị đánh giá
+        if not created:
+            rating.rating_value = new_rating_value
+            rating.save()
+        
+        # Chuyển hướng người dùng đến trang discuss hoặc trang khác
+        return redirect('discuss', novel_id=novel_id)
+    
+    # Nếu yêu cầu không phải là POST, có thể là GET, hiển thị trang đánh giá
+    # Vui lòng thêm code xử lý GET request tại đây nếu cần
+    
+    # Xử lý GET request ở đây (nếu cần)
+    
+    return redirect('discuss', novel_id=novel_id)  # Chuyển hướng về trang discuss sau khi xử lý GET request
 
 def add_comment(request, novel_id):
     if request.method == 'POST':
@@ -102,13 +128,17 @@ def novel(request, novel_id):
     return render(request,"web/novel.html",context=context)
 
 def discuss(request, novel_id):
-    novelObj =  Novel.objects.get(id=novel_id)
+    novelObj = Novel.objects.get(id=novel_id)
+    ratings = Rating.objects.filter(novel=novelObj, user=request.user)
+    
     context = {
-        "NovelInfo" : novelObj,
-        "AuthorInfo" : novelObj.authors.all(),
-        "GenreInfo" : novelObj.genres.all()
+        "NovelInfo": novelObj,
+        "AuthorInfo": novelObj.authors.all(),
+        "GenreInfo": novelObj.genres.all(),
+        "UserRating": ratings.first()  # Lấy giá trị đánh giá của người dùng (nếu có)
     }
-    return render(request,"web/discuss.html",context=context)
+    
+    return render(request, "web/discuss.html", context=context)
 
 def catalog(request, novel_id):
     novelObj =  Novel.objects.get(id=novel_id)

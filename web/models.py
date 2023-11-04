@@ -54,9 +54,16 @@ class Chapter(models.Model):
 class Comment(models.Model):
     novel = models.ForeignKey(Novel, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    parent_id = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     comment_text = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         index_together = (('novel', 'user'),)
+
+class Rating(models.Model):
+    novel = models.ForeignKey(Novel, on_delete=models.CASCADE, related_name='ratings')  # Đặt related_name thành 'ratings'
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating_value = models.PositiveIntegerField()
+
+    class Meta:
+        unique_together = (('novel', 'user'),)

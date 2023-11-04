@@ -13,5 +13,6 @@ urlpatterns = [
     path('novel/<int:novel_id>',views.novel,name="book"),
     path('novel/<int:novel_id>/dc',views.discuss,name="discuss"),
     path('novel/<int:novel_id>/add_comment/', views.add_comment, name='add_comment'),
+    path('novel/<int:novel_id>/rating/', views.rating, name='rating'),
     path('novel/<int:novel_id>/catalog', views.catalog, name="catalog")
 ]
