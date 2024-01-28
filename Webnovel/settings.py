@@ -25,13 +25,13 @@ SECRET_KEY = 'django-insecure-tiz%55&inorqhulkehyy%ht&mqj2gh=uhb4b+5a6*$)3@s(m*q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tieudat.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap5',
+    # 'bootstrap5',
     'web.apps.WebConfig',
     'django.contrib.admin',
     'django.contrib.auth',

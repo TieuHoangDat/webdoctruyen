@@ -68,7 +68,7 @@ def search(request):
 
 
 def index(request):
-    top_like =  Novel.objects.all().order_by("-total_likes")[5:17]
+    top_like =  Novel.objects.all().order_by("-total_likes")[5:15]
 
     context = {
         "top_like" : top_like,
@@ -109,6 +109,9 @@ def logoutPage(request):
 def chapter(request,chapter_id):
     chapter = Chapter.objects.get(id=chapter_id)
     path = chapter.path
+    # 'D:\\ChapterContent\\164\\7248.txt'
+    path = path[2:]
+    path = 'web\\static\\chapter' + path
     with open(path,mode="r", encoding="utf-8") as file:
        content =  file.read()
       # print(content)

@@ -132,11 +132,11 @@ angelina.addEventListener("mouseleave", () => {
   </script>
   <section class="section-island">
     <header class="island-header d-flex justify-content-around">
-        <a href="{% url 'book' NovelInfo.id%}" class="header_active">
+        <a href="{% url 'book' NovelInfo.id%}" >
           <img src="{% static 'novel/image/overview.svg' %}" alt="overview">
           <span>Tổng quan</span>
         </a>
-        <a href="{% url 'discuss' NovelInfo.id %}">
+        <a href="{% url 'discuss' NovelInfo.id %}" class="header_active">
           <img src="{% static 'novel/image/discuss.svg' %}" alt="discuss"><span>Thảo luận</span>
         </a>
     </header>
