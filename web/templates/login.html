@@ -3,7 +3,7 @@
 
     
         {% block register%}
-        <section class="vh-100" style="background-color: #eee;">
+        {% comment %} <section class="vh-100" style="background-color: #eee;"> {% endcomment %}
             <div class="container h-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-          </section>
+          {% comment %} </section> {% endcomment %}
         {% comment %} <h5>Register</h5>
         <form method = "POST" action = "">
             {% csrf_token %}

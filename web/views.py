@@ -4,6 +4,8 @@ from .models import *
 import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 from django.contrib import messages
 # Create your views here.
 def rating(request, novel_id):
@@ -112,6 +114,8 @@ def chapter(request,chapter_id):
     # 'D:\\ChapterContent\\164\\7248.txt'
     path = path[2:]
     path = 'web\\static\\chapter' + path
+    # path = '\\home\\tieudat\\webdoctruyen\\web\\static\\chapter' + path
+    # path = path.replace('\\', '/')
     with open(path,mode="r", encoding="utf-8") as file:
        content =  file.read()
       # print(content)
@@ -146,6 +150,7 @@ def novel(request, novel_id):
     }
     return render(request,"web/novel.html",context=context)
 
+@login_required(login_url='login')
 def discuss(request, novel_id):
     novelObj = Novel.objects.get(id=novel_id)
     ratings = Rating.objects.filter(novel=novelObj, user=request.user)

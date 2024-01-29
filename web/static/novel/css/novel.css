@@ -84,9 +84,9 @@
     left: 6.5vmin;
 }
 .main_info {
-    border: 0.5px solid rgb(69, 219, 97);
+    border: 0.5px solid rgb(69, 74, 219);
     border-radius: 5px;
-    height: 40vmin;
+    height: 50vmin;
     width: 100%;
     display: grid;
     grid-template-areas: "b a" "b c" "b d";
@@ -135,7 +135,7 @@
 
 .title {
     grid-area: a;
-    background-color: bisque;
+    background-color: #3c1692;
     border: 1px solid;
     border-radius: 10px;
     padding: 3px;
@@ -178,7 +178,7 @@ span {
     padding: 0.2vmin 0.4vmin 0.2vmin 0.5vmin;
     border: 1px solid;
     border-radius: 10px;
-    background-color: aqua;
+    background-color: #0e97ec;
     font-weight: 500;
     font-size: small;
    
@@ -301,7 +301,7 @@ img + * {
 }
 .section-island {
     background-color: aliceblue;
-    border: 0.5px solid rgb(69, 219, 97);
+    border: 0.5px solid rgb(94, 69, 219);
     border-radius: 5px;
     width: 100%;
     display: flex;
@@ -314,11 +314,11 @@ img + * {
 }
 .island-header {
     width: 100%;
-    border: 1px solid burlywood;
+    border: 1px solid rgb(152, 135, 222);
     border-radius: 5px;
 }
 .island-header > a {
-    background-color: aquamarine;
+    background-color: #0e97ec;
     flex-grow: 1;
     border-right: 1px solid rgb(90, 72, 192);
     border-left: 1px solid rgb(90, 72, 192);
@@ -327,7 +327,7 @@ img + * {
     text-align: center;
 }
 .header_active {
-    border-bottom: 4px solid rgb(192, 66, 194);
+    border-bottom: 4px solid rgb(102, 66, 194);
 }
 .island-header span {
     font-weight: 600;
